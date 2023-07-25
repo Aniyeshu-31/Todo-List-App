@@ -19,12 +19,38 @@ function App() {
       setAlert(null);
     },1500)
   }
+  const[myColor,setColorbtn]=useState({
+    color:'white',
+  });
+  const[mode,setMode]=useState('light'); //Whether darkMode is Enabled or not
+  const[btnText,setBtnText]=useState('EnableDarkMode');
+  const toggleMode=()=>{
+    if(mode==='light'){
+      setMode('dark');
+      setBtnText('EnableLightMode');
+      setColorbtn({
+        color:'white'
+      });
+      document.body.style.backgroundColor='#18314A';
+      showAlertMessage("Dark Mode has been Enabled","success");
+    }
+    else{
+      setMode('light');
+      setBtnText('EnableDarkMode');
+      setColorbtn({
+        color:'white',
+      })
+      document.body.style.backgroundColor='white';
+      showAlertMessage("Light Mode has been Enabled","success");
+    }
+  
+  }
   return (
     <>
       <NoteState>
       
         <BrowserRouter>
-          <Navbar />
+          <Navbar title="Todo-List App" aboutText="About us" mode={mode} toggleMode={toggleMode} btnText={btnText} myStyle={myColor} />
           <ALert alert={alert}/>
           <div className="container">
             <Routes>

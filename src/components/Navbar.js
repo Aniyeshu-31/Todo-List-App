@@ -1,6 +1,6 @@
 import React , {useEffect} from "react";
 import {Link ,useNavigate, useLocation} from "react-router-dom";
-const Navbar = () => {
+const Navbar = (props) => {
   let location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
@@ -44,6 +44,10 @@ const Navbar = () => {
             <Link to="/logIn" className="btn btn-primary mx-1" role="button">LogIn</Link>
             <Link to="/SignUp" className="btn btn-primary mx-1" role="button">SignUp</Link>
             </form>):<button className="btn btn-primary" onClick={handleClicklogout}>Logout</button>}
+            <div className="form-check form-switch">
+        <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={props.toggleMode}/>
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault" style={props.myStyle}>{props.btnText}</label>
+      </div>
         </div>
       </div>
     </nav>
