@@ -77,7 +77,7 @@ function App() {
                 path="/login"
                 element={
                   <>
-                    <Login showAlert={showAlertMessage}/>
+                    <Login showAlert={showAlertMessage} mode={mode} toggleMode={toggleMode} btnText={btnText} myStyle={myColor}/>
                   </>
                 }
               />
@@ -86,7 +86,7 @@ function App() {
                 path="/signup"
                 element={
                   <>
-                    <Signup showAlert={showAlertMessage}/>
+                    <Signup showAlert={showAlertMessage} mode={mode} toggleMode={toggleMode} btnText={btnText} myStyle={myColor}/>
                   </>
                 }
               />

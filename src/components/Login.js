@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 const Login = (props) => {
   let navigate = useNavigate();
@@ -33,10 +34,10 @@ const Login = (props) => {
   };
   return (
     <div className="container mt-3">
-      <h2 className="my-2">Login To Todo-List-App</h2>
+      <h2 className={`my-2 text-${(props.mode==='light')?'black':'white'}`}>{props.title}</h2>
       <form onSubmit={handleSubmit} className="mt-2">
         <div className="mb-3">
-          <label htmlFor="email" className="form-label">
+          <label htmlFor="email" className={`form-label  text-${(props.mode==='light')?'black':'white'}`}>
             Email Address
           </label>
           <input
@@ -50,7 +51,7 @@ const Login = (props) => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="password" className="form-label">
+          <label htmlFor="password" className={`form-label  text-${(props.mode==='light')?'black':'white'}`}>
             Password
           </label>
           <input
@@ -69,5 +70,12 @@ const Login = (props) => {
     </div>
   );
 };
+Login.propTypes=
+{
+  title:PropTypes.string.isRequired,
+}
+Login.defaultProps={
+  title:'Login To Todo-List App',
+}
 
 export default Login;

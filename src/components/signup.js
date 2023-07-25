@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 const Signup = (props) => {
   let navigate = useNavigate();
@@ -36,9 +37,9 @@ const Signup = (props) => {
 
   return (
     <div className="container mt-2">
-      <h2>Create an Account on Todo-List-App</h2>
+      <h2 className={`my-2 text-${(props.mode==='light')?'black':'white'}`}>{props.title}</h2>
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
+        <div className={`mb-3 text-${(props.mode==='light')?'black':'white'}`}>
           <label htmlFor="name" className="form-label">
             Name
           </label>
@@ -51,7 +52,7 @@ const Signup = (props) => {
             onChange={onChange}
           />
         </div>
-        <div className="mb-3">
+        <div className={`mb-3 text-${(props.mode==='light')?'black':'white'}`}>
           <label htmlFor="email" className="form-label">
             Email address
           </label>
@@ -65,7 +66,7 @@ const Signup = (props) => {
             onChange={onChange}
           />
         </div>
-        <div className="mb-3">
+        <div className={`mb-3 text-${(props.mode==='light')?'black':'white'}`}>
           <label htmlFor="password" className="form-label">
             Password
           </label>
@@ -79,7 +80,7 @@ const Signup = (props) => {
             minLength={5}
           />
         </div>
-        <div className="mb-3">
+        <div className={`mb-3 text-${(props.mode==='light')?'black':'white'}`}>
           <label htmlFor="exampleInputPassword1" className="form-label">
             Confirm Password
           </label>
@@ -100,4 +101,11 @@ const Signup = (props) => {
     </div>
   );
   }
+Signup.propTypes=
+{
+  title:PropTypes.string.isRequired,
+}
+Signup.defaultProps={
+  title:'Create an Account on Todo-List-App',
+}
 export default Signup;
